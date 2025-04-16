@@ -1,0 +1,134 @@
+{
+  "collectionName": "components_layout_biographical_details",
+  "info": {
+    "displayName": "Biographical Details",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Gotra": {
+      "type": "enumeration",
+      "enum": [
+        "Badal",
+        "Bhal",
+        "Gagal",
+        "Gol",
+        "Jaital",
+        "Kachil",
+        "Kasib",
+        "Kochal",
+        "Kohil"
+      ]
+    },
+    "Aakna": {
+      "type": "enumeration",
+      "enum": [
+        "Amaroha",
+        "Bageriya",
+        "Baraha",
+        "Chauda",
+        "Bajrang Gadiya",
+        "Chandaiya",
+        "Dengare",
+        "Ghura",
+        "Jhudele",
+        "Khangat",
+        "Kharda",
+        "Kudariya",
+        "Naina",
+        "Pachanone",
+        "Barele",
+        "Chapara",
+        "Geda",
+        "Mihi ke kunvar",
+        "Nisunge",
+        "Nogaraiya",
+        "Nolyeha",
+        "Rawat",
+        "Andhi",
+        "Baderiya",
+        "Bamoriya",
+        "Bardiya",
+        "Bed",
+        "Bhagoriya",
+        "Bijpuriya",
+        "Bilaiya",
+        "Chiroliya",
+        "Chungele",
+        "Kathal",
+        "Lahariya",
+        "Nagariya",
+        "Rikholya",
+        "Seth",
+        "Sipolya",
+        "Sirojiya",
+        "Amoriya",
+        "Bhondiya",
+        "Damele",
+        "Dhusar",
+        "Katare",
+        "Piparseniya",
+        "Aasu",
+        "AasuDeepa",
+        "Bedar",
+        "Deepa",
+        "Khantal",
+        "Sudipa",
+        "Badonya",
+        "Binoriya",
+        "Dadraya",
+        "Ikasade",
+        "Indurakhya",
+        "Kanjolya",
+        "Kastawar",
+        "Kharaya",
+        "Kurele",
+        "Misuriya",
+        "Jhuke",
+        "Kandele",
+        "Lohiya",
+        "Shav"
+      ]
+    },
+    "Mama_Aakna": {
+      "type": "enumeration",
+      "enum": [
+        "Aasu",
+        "Amar",
+        "Amolya",
+        "Amoriya",
+        "Andhi",
+        "Baderiya",
+        "Badonya",
+        "Bajrangdiya",
+        "Bedar"
+      ]
+    },
+    "manglik_status": {
+      "type": "enumeration",
+      "enum": [
+        "Manglik",
+        "Non Manglik",
+        "Aanshik",
+        "Other"
+      ]
+    },
+    "Grah": {
+      "type": "enumeration",
+      "enum": [
+        "Devta",
+        "Manushya",
+        "Rakshasa"
+      ]
+    },
+    "Handicap": {
+      "type": "enumeration",
+      "enum": [
+        "None",
+        "Physically",
+        "Mentally",
+        "Other"
+      ]
+    }
+  }
+}

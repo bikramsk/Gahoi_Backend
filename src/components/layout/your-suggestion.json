@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_layout_your_suggestions",
+  "info": {
+    "displayName": "Your Suggestion"
+  },
+  "options": {},
+  "attributes": {
+    "suggestions": {
+      "type": "text"
+    },
+    "date": {
+      "type": "date"
+    }
+  }
+}

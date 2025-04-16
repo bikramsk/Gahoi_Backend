@@ -12,12 +12,20 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "title": {
+    "responsibilities_title": {
       "type": "string"
     },
-    "blocks": {
-      "type": "dynamiczone",
-      "components": ["shared.media", "shared.quote", "shared.rich-text", "shared.slider"]
+    "responsibilities_description": {
+      "type": "text"
+    },
+    "responsibilities_desc_1": {
+      "type": "blocks"
+    },
+    "responsibilities_desc_2": {
+      "type": "blocks"
+    },
+    "responsibilities_desc_3": {
+      "type": "blocks"
     }
   }
 }

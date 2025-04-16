@@ -1,0 +1,12 @@
+{
+  "collectionName": "components_layout_child_details",
+  "info": {
+    "displayName": "Child Details"
+  },
+  "options": {},
+  "attributes": {
+    "child_name": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "collectionName": "components_layout_personal_informations",
+  "info": {
+    "displayName": "Personal Information"
+  },
+  "options": {},
+  "attributes": {
+    "display_picture": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "full_name": {
+      "type": "string",
+      "maxLength": 30,
+      "minLength": 5
+    },
+    "village": {
+      "type": "string"
+    },
+    "mobile_number": {
+      "type": "biginteger",
+      "required": true,
+      "max": "10"
+    },
+    "whatsapp_number": {
+      "type": "biginteger",
+      "required": true,
+      "max": "10"
+    }
+  }
+}

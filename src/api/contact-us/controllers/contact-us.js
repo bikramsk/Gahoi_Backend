@@ -1,9 +1,9 @@
 'use strict';
 
 /**
- *  category controller
+ * contact-us controller
  */
 
 const { createCoreController } = require('@strapi/strapi').factories;
 
-module.exports = createCoreController('api::category.category');
+module.exports = createCoreController('api::contact-us.contact-us');

@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_layout_family_details",
+  "info": {
+    "displayName": "Family Details",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "father_name": {
+      "type": "string",
+      "required": true
+    },
+    "mother_name": {
+      "type": "string",
+      "required": true
+    },
+    "phone_number": {
+      "type": "biginteger",
+      "required": true
+    },
+    "spouse_name": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

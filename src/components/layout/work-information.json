@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_layout_work_informations",
+  "info": {
+    "displayName": "Work Information"
+  },
+  "options": {},
+  "attributes": {
+    "occupation": {
+      "type": "string"
+    },
+    "company_name": {
+      "type": "string"
+    },
+    "work_area": {
+      "type": "string"
+    }
+  }
+}
