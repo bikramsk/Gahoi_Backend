@@ -143,25 +143,29 @@ export interface LayoutFamilyDetails extends Struct.ComponentSchema {
     displayName: 'Family Details';
   };
   attributes: {
-    father_name: Schema.Attribute.String & Schema.Attribute.Required;
-    mother_name: Schema.Attribute.String & Schema.Attribute.Required;
-    phone_number: Schema.Attribute.BigInteger & Schema.Attribute.Required;
-    spouse_name: Schema.Attribute.String & Schema.Attribute.Required;
+    father_name: Schema.Attribute.String;
+    mother_name: Schema.Attribute.String;
+    phone_number: Schema.Attribute.BigInteger;
+    spouse_name: Schema.Attribute.String;
   };
 }
 
 export interface LayoutPersonalInformation extends Struct.ComponentSchema {
   collectionName: 'components_layout_personal_informations';
   info: {
+    description: '';
     displayName: 'Personal Information';
   };
   attributes: {
     display_picture: Schema.Attribute.Media<'images'>;
+    email_address: Schema.Attribute.Email & Schema.Attribute.Required;
     full_name: Schema.Attribute.String &
       Schema.Attribute.SetMinMaxLength<{
         maxLength: 30;
         minLength: 5;
       }>;
+    Gender: Schema.Attribute.Enumeration<['Male', 'Female']> &
+      Schema.Attribute.Required;
     mobile_number: Schema.Attribute.BigInteger &
       Schema.Attribute.Required &
       Schema.Attribute.SetMinMax<

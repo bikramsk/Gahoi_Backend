@@ -8,19 +8,19 @@
   "attributes": {
     "father_name": {
       "type": "string",
-      "required": true
+      "required": false
     },
     "mother_name": {
       "type": "string",
-      "required": true
+      "required": false
     },
     "phone_number": {
       "type": "biginteger",
-      "required": true
+      "required": false
     },
     "spouse_name": {
       "type": "string",
-      "required": true
+      "required": false
     }
   }
 }
