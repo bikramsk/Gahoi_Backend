@@ -542,7 +542,7 @@ export interface ApiRegistrationPageRegistrationPage
   collectionName: 'registration_pages';
   info: {
     description: '';
-    displayName: 'RegistrationPage';
+    displayName: 'Registration';
     pluralName: 'registration-pages';
     singularName: 'registration-page';
   };

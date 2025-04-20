@@ -15,9 +15,7 @@
       ]
     },
     "full_name": {
-      "type": "string",
-      "maxLength": 30,
-      "minLength": 5
+      "type": "string"
     },
     "village": {
       "type": "string"
