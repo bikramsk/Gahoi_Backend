@@ -1,7 +1,8 @@
 {
   "collectionName": "components_layout_additional_details",
   "info": {
-    "displayName": "Additional Details"
+    "displayName": "Additional Details",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -19,6 +20,11 @@
     },
     "current_address": {
       "type": "text"
+    },
+    "regional_information": {
+      "type": "component",
+      "repeatable": false,
+      "component": "layout.regional-information"
     }
   }
 }
