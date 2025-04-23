@@ -220,6 +220,7 @@ export interface LayoutBiographicalDetails extends Struct.ComponentSchema {
         'Chandaiya/Chandraseniya',
         'Jhudele/Jurele/Jhood',
         'Kandele',
+        'Others',
       ]
     >;
     Gotra: Schema.Attribute.Enumeration<
@@ -237,6 +238,7 @@ export interface LayoutBiographicalDetails extends Struct.ComponentSchema {
         'Kasiv',
         'Kasav',
         'Single',
+        'Others',
       ]
     >;
     Grah: Schema.Attribute.Enumeration<['Devta', 'Manushya', 'Rakshasa']>;
