@@ -437,12 +437,12 @@ export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
   };
 }
 
-export interface ApiContactUsContactUs extends Struct.SingleTypeSchema {
-  collectionName: 'contact_uses';
+export interface ApiContactContact extends Struct.CollectionTypeSchema {
+  collectionName: 'contacts';
   info: {
-    displayName: 'ContactUs';
-    pluralName: 'contact-uses';
-    singularName: 'contact-us';
+    displayName: 'Contact';
+    pluralName: 'contacts';
+    singularName: 'contact';
   };
   options: {
     draftAndPublish: true;
@@ -454,14 +454,48 @@ export interface ApiContactUsContactUs extends Struct.SingleTypeSchema {
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
-      'api::contact-us.contact-us'
+      'api::contact.contact'
     > &
       Schema.Attribute.Private;
     message: Schema.Attribute.Text;
-    mobile_number: Schema.Attribute.BigInteger & Schema.Attribute.Required;
+    mobile: Schema.Attribute.String;
     name: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
     subject: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiCowsevaCowseva extends Struct.CollectionTypeSchema {
+  collectionName: 'cowsevas';
+  info: {
+    description: '';
+    displayName: 'cowseva';
+    pluralName: 'cowsevas';
+    singularName: 'cowseva';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    donations: Schema.Attribute.Component<'layout.donations', true>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::cowseva.cowseva'
+    > &
+      Schema.Attribute.Private;
+    monthlyExpenses: Schema.Attribute.Component<
+      'layout.monthly-expenses',
+      true
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    sevaPlaces: Schema.Attribute.Component<'layout.seva-places', true>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1099,7 +1133,8 @@ declare module '@strapi/strapi' {
       'admin::user': AdminUser;
       'api::about.about': ApiAboutAbout;
       'api::article.article': ApiArticleArticle;
-      'api::contact-us.contact-us': ApiContactUsContactUs;
+      'api::contact.contact': ApiContactContact;
+      'api::cowseva.cowseva': ApiCowsevaCowseva;
       'api::global.global': ApiGlobalGlobal;
       'api::login-page.login-page': ApiLoginPageLoginPage;
       'api::registration-page.registration-page': ApiRegistrationPageRegistrationPage;

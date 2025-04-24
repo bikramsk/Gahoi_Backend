@@ -1,10 +1,10 @@
 {
-  "kind": "singleType",
-  "collectionName": "contact_uses",
+  "kind": "collectionType",
+  "collectionName": "contacts",
   "info": {
-    "singularName": "contact-us",
-    "pluralName": "contact-uses",
-    "displayName": "ContactUs"
+    "singularName": "contact",
+    "pluralName": "contacts",
+    "displayName": "Contact"
   },
   "options": {
     "draftAndPublish": true
@@ -13,9 +13,8 @@
     "name": {
       "type": "string"
     },
-    "mobile_number": {
-      "type": "biginteger",
-      "required": true
+    "mobile": {
+      "type": "string"
     },
     "subject": {
       "type": "string"

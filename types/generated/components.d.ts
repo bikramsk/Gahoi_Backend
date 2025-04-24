@@ -278,6 +278,21 @@ export interface LayoutChildDetails extends Struct.ComponentSchema {
   };
 }
 
+export interface LayoutDonations extends Struct.ComponentSchema {
+  collectionName: 'components_layout_donations';
+  info: {
+    description: '';
+    displayName: 'donations';
+  };
+  attributes: {
+    Amount: Schema.Attribute.BigInteger;
+    Date: Schema.Attribute.Date;
+    Name: Schema.Attribute.String;
+    place: Schema.Attribute.String;
+    purpose: Schema.Attribute.String;
+  };
+}
+
 export interface LayoutFamilyDetails extends Struct.ComponentSchema {
   collectionName: 'components_layout_family_details';
   info: {
@@ -289,6 +304,22 @@ export interface LayoutFamilyDetails extends Struct.ComponentSchema {
     mother_name: Schema.Attribute.String;
     phone_number: Schema.Attribute.BigInteger;
     spouse_name: Schema.Attribute.String;
+  };
+}
+
+export interface LayoutMonthlyExpenses extends Struct.ComponentSchema {
+  collectionName: 'components_layout_monthly_expenses';
+  info: {
+    description: '';
+    displayName: 'monthlyExpenses';
+  };
+  attributes: {
+    feed: Schema.Attribute.BigInteger;
+    maintenance: Schema.Attribute.BigInteger;
+    medical: Schema.Attribute.BigInteger;
+    Month: Schema.Attribute.String;
+    staff: Schema.Attribute.BigInteger;
+    total: Schema.Attribute.BigInteger;
   };
 }
 
@@ -625,6 +656,21 @@ export interface LayoutRegionalInformation extends Struct.ComponentSchema {
   };
 }
 
+export interface LayoutSevaPlaces extends Struct.ComponentSchema {
+  collectionName: 'components_layout_seva_places';
+  info: {
+    description: '';
+    displayName: 'sevaPlaces';
+  };
+  attributes: {
+    address: Schema.Attribute.Text;
+    contact: Schema.Attribute.String;
+    image: Schema.Attribute.Media<'images'>;
+    inCharge: Schema.Attribute.String;
+    name: Schema.Attribute.String;
+  };
+}
+
 export interface LayoutWorkInformation extends Struct.ComponentSchema {
   collectionName: 'components_layout_work_informations';
   info: {
@@ -716,9 +762,12 @@ declare module '@strapi/strapi' {
       'layout.additional-details': LayoutAdditionalDetails;
       'layout.biographical-details': LayoutBiographicalDetails;
       'layout.child-details': LayoutChildDetails;
+      'layout.donations': LayoutDonations;
       'layout.family-details': LayoutFamilyDetails;
+      'layout.monthly-expenses': LayoutMonthlyExpenses;
       'layout.personal-information': LayoutPersonalInformation;
       'layout.regional-information': LayoutRegionalInformation;
+      'layout.seva-places': LayoutSevaPlaces;
       'layout.work-information': LayoutWorkInformation;
       'layout.your-suggestion': LayoutYourSuggestion;
       'shared.media': SharedMedia;
