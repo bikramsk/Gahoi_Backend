@@ -534,6 +534,39 @@ export interface ApiGlobalGlobal extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiLatestNewsLatestNews extends Struct.CollectionTypeSchema {
+  collectionName: 'latest_news_items';
+  info: {
+    description: '';
+    displayName: 'LatestNews';
+    pluralName: 'latest-news-items';
+    singularName: 'latest-news';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Date: Schema.Attribute.DateTime;
+    Description: Schema.Attribute.Component<'layout.localized-rich-text', true>;
+    Images: Schema.Attribute.Media<'images', true>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::latest-news.latest-news'
+    > &
+      Schema.Attribute.Private;
+    Location: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    Title: Schema.Attribute.Component<'layout.localized-text', true>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiLoginPageLoginPage extends Struct.CollectionTypeSchema {
   collectionName: 'login_pages';
   info: {
@@ -1136,6 +1169,7 @@ declare module '@strapi/strapi' {
       'api::contact.contact': ApiContactContact;
       'api::cowseva.cowseva': ApiCowsevaCowseva;
       'api::global.global': ApiGlobalGlobal;
+      'api::latest-news.latest-news': ApiLatestNewsLatestNews;
       'api::login-page.login-page': ApiLoginPageLoginPage;
       'api::registration-page.registration-page': ApiRegistrationPageRegistrationPage;
       'plugin::content-releases.release': PluginContentReleasesRelease;

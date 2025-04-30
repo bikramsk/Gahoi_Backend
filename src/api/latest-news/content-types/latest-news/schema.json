@@ -1,0 +1,39 @@
+{
+  "kind": "collectionType",
+  "collectionName": "latest_news_items",
+  "info": {
+    "singularName": "latest-news",
+    "pluralName": "latest-news-items",
+    "displayName": "LatestNews",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "Date": {
+      "type": "datetime"
+    },
+    "Location": {
+      "type": "string"
+    },
+    "Images": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "Title": {
+      "type": "component",
+      "repeatable": true,
+      "component": "layout.localized-text"
+    },
+    "Description": {
+      "type": "component",
+      "repeatable": true,
+      "component": "layout.localized-rich-text"
+    }
+  }
+}

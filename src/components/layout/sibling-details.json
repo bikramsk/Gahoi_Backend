@@ -1,0 +1,69 @@
+{
+  "collectionName": "components_layout_sibling_details",
+  "info": {
+    "displayName": "sibling-details",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "sibling_name": {
+      "type": "string"
+    },
+    "gender": {
+      "type": "enumeration",
+      "enum": [
+        "Male",
+        "Female"
+      ]
+    },
+    "phone_number": {
+      "type": "string"
+    },
+    "age": {
+      "type": "integer"
+    },
+    "education": {
+      "type": "enumeration",
+      "enum": [
+        "Primary",
+        "Secondary",
+        "Higher Secondary",
+        "Graduate",
+        "Post Graduate",
+        "Other"
+      ]
+    },
+    "occupation": {
+      "type": "enumeration",
+      "enum": [
+        "Student",
+        "Employed",
+        "Self-Employed",
+        "Business",
+        "Homemaker",
+        "Other"
+      ]
+    },
+    "marital_status": {
+      "type": "enumeration",
+      "enum": [
+        "Married",
+        "Unmarried"
+      ]
+    },
+    "is_dependent": {
+      "type": "boolean"
+    },
+    "sibling_relation": {
+      "type": "enumeration",
+      "enum": [
+        "Elder Brother",
+        "Younger Brother",
+        "Elder Sister",
+        "Younger Sister",
+        "Twin Brother",
+        "Twin Sister"
+      ]
+    }
+  }
+}

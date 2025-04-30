@@ -1,7 +1,8 @@
 {
   "collectionName": "components_layout_work_informations",
   "info": {
-    "displayName": "Work Information"
+    "displayName": "Work Information",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -13,6 +14,66 @@
     },
     "work_area": {
       "type": "string"
+    },
+    "industrySector": {
+      "type": "enumeration",
+      "enum": [
+        "Agriculture & Allied Activities  ",
+        "Manufacturing  ",
+        "Construction & Real Estate  ",
+        "Trade & Commerce  ",
+        "Transportation & Logistics  ",
+        "Information Technology & Services  ",
+        "Financial Services  ",
+        "Healthcare & Pharmaceuticals  ",
+        "Education & Training  ",
+        "Professional Services  ",
+        "Hospitality & Tourism  ",
+        "Media & Entertainment  ",
+        "Textile & Apparel  ",
+        "Mining & Minerals  ",
+        "Power & Energy  ",
+        "Other Services  "
+      ],
+      "required": true
+    },
+    "businessSize": {
+      "type": "enumeration",
+      "enum": [
+        "Micro Enterprise  ",
+        "Small Enterprise  ",
+        "Medium Enterprise  ",
+        "Large Enterprise  ",
+        "Self Employed/Freelancer  ",
+        "Not Applicable  "
+      ],
+      "required": true
+    },
+    "workType": {
+      "type": "enumeration",
+      "enum": [
+        "Business Owner  ",
+        "Professional  ",
+        "Skilled Worker  ",
+        "Government Service  ",
+        "Private Sector Employee  ",
+        "Freelancer/Consultant  ",
+        "Retired  ",
+        "Other"
+      ],
+      "required": true
+    },
+    "employmentType": {
+      "type": "enumeration",
+      "enum": [
+        "Full-time  ",
+        "Part-time  ",
+        "Contract  ",
+        "Self-employed  ",
+        "Business Owner  ",
+        "Not Currently Employed"
+      ],
+      "required": true
     }
   }
 }

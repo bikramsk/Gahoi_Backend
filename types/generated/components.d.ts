@@ -37,6 +37,7 @@ export interface LayoutBiographicalDetails extends Struct.ComponentSchema {
         'Amar',
         'Arusiya',
         'Badal/Waghil/Bandal',
+        'Badil',
         'Badhiya',
         'Badonya',
         'Bagar',
@@ -48,6 +49,8 @@ export interface LayoutBiographicalDetails extends Struct.ComponentSchema {
         'Barha/Barehe',
         'Baronya',
         'Barsainya',
+        'Baidal',
+        'Beder',
         'Behre',
         'Beder/Badil/Baidal',
         'Bed',
@@ -271,10 +274,13 @@ export interface LayoutBiographicalDetails extends Struct.ComponentSchema {
 export interface LayoutChildDetails extends Struct.ComponentSchema {
   collectionName: 'components_layout_child_details';
   info: {
+    description: '';
     displayName: 'Child Details';
   };
   attributes: {
     child_name: Schema.Attribute.String;
+    gender: Schema.Attribute.Enumeration<['Male', 'Female']>;
+    phone_number: Schema.Attribute.String;
   };
 }
 
@@ -300,10 +306,36 @@ export interface LayoutFamilyDetails extends Struct.ComponentSchema {
     displayName: 'Family Details';
   };
   attributes: {
+    father_mobile: Schema.Attribute.String;
     father_name: Schema.Attribute.String;
+    mother_mobile: Schema.Attribute.String;
     mother_name: Schema.Attribute.String;
     phone_number: Schema.Attribute.BigInteger;
+    siblingDetails: Schema.Attribute.Component<'layout.sibling-details', true>;
+    spouse_mobile: Schema.Attribute.String;
     spouse_name: Schema.Attribute.String;
+  };
+}
+
+export interface LayoutLocalizedRichText extends Struct.ComponentSchema {
+  collectionName: 'components_layout_localized_rich_texts';
+  info: {
+    displayName: 'Localized Rich Text';
+  };
+  attributes: {
+    en: Schema.Attribute.Blocks;
+    hi: Schema.Attribute.Blocks;
+  };
+}
+
+export interface LayoutLocalizedText extends Struct.ComponentSchema {
+  collectionName: 'components_layout_localized_texts';
+  info: {
+    displayName: 'Localized Text';
+  };
+  attributes: {
+    en: Schema.Attribute.String;
+    hi: Schema.Attribute.String;
   };
 }
 
@@ -671,15 +703,111 @@ export interface LayoutSevaPlaces extends Struct.ComponentSchema {
   };
 }
 
+export interface LayoutSiblingDetails extends Struct.ComponentSchema {
+  collectionName: 'components_layout_sibling_details';
+  info: {
+    description: '';
+    displayName: 'sibling-details';
+  };
+  attributes: {
+    age: Schema.Attribute.Integer;
+    education: Schema.Attribute.Enumeration<
+      [
+        'Primary',
+        'Secondary',
+        'Higher Secondary',
+        'Graduate',
+        'Post Graduate',
+        'Other',
+      ]
+    >;
+    gender: Schema.Attribute.Enumeration<['Male', 'Female']>;
+    is_dependent: Schema.Attribute.Boolean;
+    marital_status: Schema.Attribute.Enumeration<['Married', 'Unmarried']>;
+    occupation: Schema.Attribute.Enumeration<
+      ['Student', 'Employed', 'Self-Employed', 'Business', 'Homemaker', 'Other']
+    >;
+    phone_number: Schema.Attribute.String;
+    sibling_name: Schema.Attribute.String;
+    sibling_relation: Schema.Attribute.Enumeration<
+      [
+        'Elder Brother',
+        'Younger Brother',
+        'Elder Sister',
+        'Younger Sister',
+        'Twin Brother',
+        'Twin Sister',
+      ]
+    >;
+  };
+}
+
 export interface LayoutWorkInformation extends Struct.ComponentSchema {
   collectionName: 'components_layout_work_informations';
   info: {
+    description: '';
     displayName: 'Work Information';
   };
   attributes: {
+    businessSize: Schema.Attribute.Enumeration<
+      [
+        'Micro Enterprise  ',
+        'Small Enterprise  ',
+        'Medium Enterprise  ',
+        'Large Enterprise  ',
+        'Self Employed/Freelancer  ',
+        'Not Applicable  ',
+      ]
+    > &
+      Schema.Attribute.Required;
     company_name: Schema.Attribute.String;
+    employmentType: Schema.Attribute.Enumeration<
+      [
+        'Full-time  ',
+        'Part-time  ',
+        'Contract  ',
+        'Self-employed  ',
+        'Business Owner  ',
+        'Not Currently Employed',
+      ]
+    > &
+      Schema.Attribute.Required;
+    industrySector: Schema.Attribute.Enumeration<
+      [
+        'Agriculture & Allied Activities  ',
+        'Manufacturing  ',
+        'Construction & Real Estate  ',
+        'Trade & Commerce  ',
+        'Transportation & Logistics  ',
+        'Information Technology & Services  ',
+        'Financial Services  ',
+        'Healthcare & Pharmaceuticals  ',
+        'Education & Training  ',
+        'Professional Services  ',
+        'Hospitality & Tourism  ',
+        'Media & Entertainment  ',
+        'Textile & Apparel  ',
+        'Mining & Minerals  ',
+        'Power & Energy  ',
+        'Other Services  ',
+      ]
+    > &
+      Schema.Attribute.Required;
     occupation: Schema.Attribute.String;
     work_area: Schema.Attribute.String;
+    workType: Schema.Attribute.Enumeration<
+      [
+        'Business Owner  ',
+        'Professional  ',
+        'Skilled Worker  ',
+        'Government Service  ',
+        'Private Sector Employee  ',
+        'Freelancer/Consultant  ',
+        'Retired  ',
+        'Other',
+      ]
+    > &
+      Schema.Attribute.Required;
   };
 }
 
@@ -764,10 +892,13 @@ declare module '@strapi/strapi' {
       'layout.child-details': LayoutChildDetails;
       'layout.donations': LayoutDonations;
       'layout.family-details': LayoutFamilyDetails;
+      'layout.localized-rich-text': LayoutLocalizedRichText;
+      'layout.localized-text': LayoutLocalizedText;
       'layout.monthly-expenses': LayoutMonthlyExpenses;
       'layout.personal-information': LayoutPersonalInformation;
       'layout.regional-information': LayoutRegionalInformation;
       'layout.seva-places': LayoutSevaPlaces;
+      'layout.sibling-details': LayoutSiblingDetails;
       'layout.work-information': LayoutWorkInformation;
       'layout.your-suggestion': LayoutYourSuggestion;
       'shared.media': SharedMedia;

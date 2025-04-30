@@ -21,6 +21,20 @@
     "spouse_name": {
       "type": "string",
       "required": false
+    },
+    "siblingDetails": {
+      "type": "component",
+      "repeatable": true,
+      "component": "layout.sibling-details"
+    },
+    "father_mobile": {
+      "type": "string"
+    },
+    "mother_mobile": {
+      "type": "string"
+    },
+    "spouse_mobile": {
+      "type": "string"
     }
   }
 }
