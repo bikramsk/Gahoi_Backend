@@ -36,6 +36,13 @@
     "email_address": {
       "type": "email",
       "required": true
+    },
+    "nationality": {
+      "type": "enumeration",
+      "enum": [
+        "Indian",
+        "Non-Indian"
+      ]
     }
   }
 }

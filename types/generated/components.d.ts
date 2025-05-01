@@ -375,6 +375,7 @@ export interface LayoutPersonalInformation extends Struct.ComponentSchema {
         },
         string
       >;
+    nationality: Schema.Attribute.Enumeration<['Indian', 'Non-Indian']>;
     village: Schema.Attribute.String;
   };
 }
@@ -731,12 +732,47 @@ export interface LayoutSiblingDetails extends Struct.ComponentSchema {
     sibling_name: Schema.Attribute.String;
     sibling_relation: Schema.Attribute.Enumeration<
       [
-        'Elder Brother',
-        'Younger Brother',
-        'Elder Sister',
-        'Younger Sister',
-        'Twin Brother',
-        'Twin Sister',
+        'Paternal Grandfather \u0926\u093E\u0926\u093E',
+        'Paternal Grandmother \u0926\u093E\u0926\u0940',
+        'Father\u2019s (Elder) Brother \u0924\u093E\u090A',
+        'Father\u2019s (Elder) Brother\u2019s Wife \u0924\u093E\u0908',
+        'Father\u2019s (Younger) Brother \u091A\u093E\u091A\u093E',
+        'Father\u2019s (Younger) Brother\u2019s Wife \u091A\u093E\u091A\u0940',
+        'Father\u2019s Sister \u092C\u0941\u0906',
+        'Father\u2019s Sister\u2019s Husband \u092B\u0941\u092B\u093E',
+        'Maternal Grandmother \u0928\u093E\u0928\u0940',
+        'Maternal Grandfather \u0928\u093E\u0928\u093E',
+        'Mother\u2019s Brother \u092E\u093E\u092E\u093E',
+        'Mother\u2019s Brother\u2019s Wife \u092E\u093E\u092E\u0940',
+        'Mother\u2019s Sister \u092E\u094C\u0938\u0940',
+        'Mother\u2019s Sister\u2019s Husband \u092E\u094C\u0938\u093E',
+        'Grandson (Son\u2019s Son) \u092A\u094B\u0924\u093E',
+        'Grandson (Daughter\u2019s Son) \u0928\u093E\u0924\u0940',
+        'Granddaughter (Son\u2019s Daughter) \u092A\u094B\u0924\u0940',
+        'Granddaughter (Daughter\u2019s Daughter) \u0928\u093E\u0924\u093F\u0928',
+        'Sister \u092C\u0939\u0928',
+        "Sister's Husband \u091C\u0940\u091C\u093E",
+        'Sister\u2019s Son \u092D\u093E\u0902\u091C\u093E',
+        'Sister\u2019s Daughter \u092D\u093E\u0902\u091C\u0940',
+        'Brother \u092D\u093E\u0908',
+        "Brother's Wife \u092D\u093E\u092D\u0940",
+        'Brother\u2019s Son \u092D\u0924\u0940\u091C\u093E',
+        'Brother\u2019s Daughter \u092D\u0924\u0940\u091C\u0940',
+        'Husband \u092A\u0924\u0940',
+        'Wife\u2019s/Husband\u2019s Mother \u0938\u092E\u0927\u0940',
+        'Wife\u2019s/Husband\u2019s Father \u0938\u092E\u0927\u093F\u0928',
+        'Son in Law \u0926\u093E\u092E\u093E\u0926',
+        'Daughter in Law \u092C\u0939\u0941',
+        "Husband's (elder) Brother \u091C\u0947\u0920",
+        "Husband's (elder) Brother's Wife \u091C\u0947\u0920\u093E\u0928\u0940",
+        "Husband's Sister \u0928\u0928\u0926",
+        "Husband's Sister's Husband \u0928\u0928\u0926\u094B\u0907",
+        "Husband's (younger) Brother \u0926\u0947\u0935\u0930",
+        "Husband's (younger) Brother's Wife \u0926\u0947\u0935\u0930\u093E\u0928\u0940",
+        "Wife's Sister \u0938\u093E\u0932\u0940",
+        "Wife's Sister's Husband \u0938\u093E\u0902\u0922\u0941",
+        'Wife\u2019s Brother \u0938\u093E\u0932\u093E',
+        'Wife\u2019s Brother\u2019s Wife \u0938\u0948\u0932\u0939\u091C',
       ]
     >;
   };
@@ -751,45 +787,45 @@ export interface LayoutWorkInformation extends Struct.ComponentSchema {
   attributes: {
     businessSize: Schema.Attribute.Enumeration<
       [
-        'Micro Enterprise  ',
-        'Small Enterprise  ',
-        'Medium Enterprise  ',
-        'Large Enterprise  ',
-        'Self Employed/Freelancer  ',
-        'Not Applicable  ',
+        'Micro Enterprise',
+        'Small Enterprise',
+        'Medium Enterprise',
+        'Large Enterprise',
+        'Self Employed/Freelancer',
+        'Not Applicable',
       ]
     > &
       Schema.Attribute.Required;
     company_name: Schema.Attribute.String;
     employmentType: Schema.Attribute.Enumeration<
       [
-        'Full-time  ',
-        'Part-time  ',
-        'Contract  ',
-        'Self-employed  ',
-        'Business Owner  ',
+        'Full-time',
+        'Part-time',
+        'Contract',
+        'Self-employed',
+        'Business Owner',
         'Not Currently Employed',
       ]
     > &
       Schema.Attribute.Required;
     industrySector: Schema.Attribute.Enumeration<
       [
-        'Agriculture & Allied Activities  ',
-        'Manufacturing  ',
-        'Construction & Real Estate  ',
-        'Trade & Commerce  ',
-        'Transportation & Logistics  ',
-        'Information Technology & Services  ',
-        'Financial Services  ',
-        'Healthcare & Pharmaceuticals  ',
-        'Education & Training  ',
-        'Professional Services  ',
-        'Hospitality & Tourism  ',
-        'Media & Entertainment  ',
-        'Textile & Apparel  ',
-        'Mining & Minerals  ',
-        'Power & Energy  ',
-        'Other Services  ',
+        'Agriculture & Allied Activities',
+        'Manufacturing',
+        'Construction & Real Estate',
+        'Trade & Commerce',
+        'Transportation & Logistics',
+        'Information Technology & Services',
+        'Financial Services',
+        'Healthcare & Pharmaceuticals',
+        'Education & Training',
+        'Professional Services',
+        'Hospitality & Tourism',
+        'Media & Entertainment',
+        'Textile & Apparel',
+        'Mining & Minerals',
+        'Power & Energy',
+        'Other Services',
       ]
     > &
       Schema.Attribute.Required;
@@ -797,13 +833,13 @@ export interface LayoutWorkInformation extends Struct.ComponentSchema {
     work_area: Schema.Attribute.String;
     workType: Schema.Attribute.Enumeration<
       [
-        'Business Owner  ',
-        'Professional  ',
-        'Skilled Worker  ',
-        'Government Service  ',
-        'Private Sector Employee  ',
-        'Freelancer/Consultant  ',
-        'Retired  ',
+        'Business Owner',
+        'Professional',
+        'Skilled Worker',
+        'Government Service',
+        'Private Sector Employee',
+        'Freelancer/Consultant',
+        'Retired',
         'Other',
       ]
     > &
