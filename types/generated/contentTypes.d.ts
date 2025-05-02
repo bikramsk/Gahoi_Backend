@@ -641,6 +641,9 @@ export interface ApiRegistrationPageRegistrationPage
       false
     >;
     publishedAt: Schema.Attribute.DateTime;
+    registration_code: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
