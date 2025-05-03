@@ -615,6 +615,7 @@ export interface ApiRegistrationPageRegistrationPage
   };
   options: {
     draftAndPublish: true;
+    mainField: 'registration_code';
   };
   attributes: {
     additional_details: Schema.Attribute.Component<
