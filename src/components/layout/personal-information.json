@@ -43,6 +43,14 @@
         "Indian",
         "Non-Indian"
       ]
+    },
+    "is_gahoi": {
+      "type": "enumeration",
+      "enum": [
+        "Yes",
+        "No"
+      ],
+      "required": true
     }
   }
 }

@@ -18,6 +18,7 @@
     "industrySector": {
       "type": "enumeration",
       "enum": [
+"",
         "Agriculture & Allied Activities",
         "Manufacturing",
         "Construction & Real Estate",
@@ -40,6 +41,7 @@
     "businessSize": {
       "type": "enumeration",
       "enum": [
+"",
         "Micro Enterprise",
         "Small Enterprise",
         "Medium Enterprise",
@@ -52,6 +54,7 @@
     "workType": {
       "type": "enumeration",
       "enum": [
+"",
         "Business Owner",
         "Professional",
         "Skilled Worker",
@@ -66,6 +69,7 @@
     "employmentType": {
       "type": "enumeration",
       "enum": [
+"",
         "Full-time",
         "Part-time",
         "Contract",

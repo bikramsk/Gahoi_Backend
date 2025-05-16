@@ -244,6 +244,7 @@
     "manglik_status": {
       "type": "enumeration",
       "enum": [
+"",
         "Manglik",
         "Non Manglik",
         "Aanshik",
@@ -253,6 +254,7 @@
     "Grah": {
       "type": "enumeration",
       "enum": [
+"",
         "Devta",
         "Manushya",
         "Rakshasa"
@@ -261,6 +263,7 @@
     "Handicap": {
       "type": "enumeration",
       "enum": [
+"",
         "None",
         "Physically",
         "Mentally",
@@ -270,6 +273,7 @@
     "is_married": {
       "type": "enumeration",
       "enum": [
+"",
         "Married",
         "Unmarried"
       ]
@@ -277,6 +281,7 @@
     "marriage_to_another_caste": {
       "type": "enumeration",
       "enum": [
+"",
         "Married to Another Caste",
         "Same Caste Marriage"
       ]

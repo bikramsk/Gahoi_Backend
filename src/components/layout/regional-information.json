@@ -9,6 +9,7 @@
     "RegionalAssembly": {
       "type": "enumeration",
       "enum": [
+ "",
         "Chambal Regional Assembly",
         "Ganga Jamuna Regional Assembly",
         "Bundelkhand Regional Assembly",
@@ -24,6 +25,7 @@
     "LocalPanchayatName": {
       "type": "enumeration",
       "enum": [
+ "",
         "Gahoi Vaishya Samaj Register Brahttar Gwalior",
         "Gahoi Vaishya Panchayat",
         "Gahoi Vaishya Sabha",
@@ -49,6 +51,7 @@
     "LocalPanchayat": {
       "type": "enumeration",
       "enum": [
+ "",
         "Gwalior",
         "Bhind",
         "Datia",
@@ -113,6 +116,7 @@
     "SubLocalPanchayat": {
       "type": "enumeration",
       "enum": [
+ "",
         "Gahoi Vaishya Samaj Register Brahtaar Gwalior",
         "Madhavganj",
         "Khasgi Bazaar",
@@ -300,6 +304,7 @@
     "State": {
       "type": "enumeration",
       "enum": [
+ "",
         "Bihar",
         "Chhatisgarh",
         "Delhi",

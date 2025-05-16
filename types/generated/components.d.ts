@@ -245,11 +245,11 @@ export interface LayoutBiographicalDetails extends Struct.ComponentSchema {
         'Others',
       ]
     >;
-    Grah: Schema.Attribute.Enumeration<['Devta', 'Manushya', 'Rakshasa']>;
+    Grah: Schema.Attribute.Enumeration<['', 'Devta', 'Manushya', 'Rakshasa']>;
     Handicap: Schema.Attribute.Enumeration<
-      ['None', 'Physically', 'Mentally', 'Other']
+      ['', 'None', 'Physically', 'Mentally', 'Other']
     >;
-    is_married: Schema.Attribute.Enumeration<['Married', 'Unmarried']>;
+    is_married: Schema.Attribute.Enumeration<['', 'Married', 'Unmarried']>;
     Mama_Aakna: Schema.Attribute.Enumeration<
       [
         'Aasu',
@@ -264,10 +264,10 @@ export interface LayoutBiographicalDetails extends Struct.ComponentSchema {
       ]
     >;
     manglik_status: Schema.Attribute.Enumeration<
-      ['Manglik', 'Non Manglik', 'Aanshik', 'Other']
+      ['', 'Manglik', 'Non Manglik', 'Aanshik', 'Other']
     >;
     marriage_to_another_caste: Schema.Attribute.Enumeration<
-      ['Married to Another Caste', 'Same Caste Marriage']
+      ['', 'Married to Another Caste', 'Same Caste Marriage']
     >;
   };
 }
@@ -368,6 +368,8 @@ export interface LayoutPersonalInformation extends Struct.ComponentSchema {
     full_name: Schema.Attribute.String;
     Gender: Schema.Attribute.Enumeration<['Male', 'Female']> &
       Schema.Attribute.Required;
+    is_gahoi: Schema.Attribute.Enumeration<['Yes', 'No']> &
+      Schema.Attribute.Required;
     mobile_number: Schema.Attribute.BigInteger &
       Schema.Attribute.Required &
       Schema.Attribute.SetMinMax<
@@ -390,6 +392,7 @@ export interface LayoutRegionalInformation extends Struct.ComponentSchema {
   attributes: {
     LocalPanchayat: Schema.Attribute.Enumeration<
       [
+        '',
         'Gwalior',
         'Bhind',
         'Datia',
@@ -453,6 +456,7 @@ export interface LayoutRegionalInformation extends Struct.ComponentSchema {
     >;
     LocalPanchayatName: Schema.Attribute.Enumeration<
       [
+        '',
         'Gahoi Vaishya Samaj Register Brahttar Gwalior',
         'Gahoi Vaishya Panchayat',
         'Gahoi Vaishya Sabha',
@@ -477,6 +481,7 @@ export interface LayoutRegionalInformation extends Struct.ComponentSchema {
     >;
     RegionalAssembly: Schema.Attribute.Enumeration<
       [
+        '',
         'Chambal Regional Assembly',
         'Ganga Jamuna Regional Assembly',
         'Bundelkhand Regional Assembly',
@@ -491,6 +496,7 @@ export interface LayoutRegionalInformation extends Struct.ComponentSchema {
     >;
     State: Schema.Attribute.Enumeration<
       [
+        '',
         'Bihar',
         'Chhatisgarh',
         'Delhi',
@@ -503,6 +509,7 @@ export interface LayoutRegionalInformation extends Struct.ComponentSchema {
     >;
     SubLocalPanchayat: Schema.Attribute.Enumeration<
       [
+        '',
         'Gahoi Vaishya Samaj Register Brahtaar Gwalior',
         'Madhavganj',
         'Khasgi Bazaar',
@@ -702,6 +709,7 @@ export interface LayoutSevaPlaces extends Struct.ComponentSchema {
     image: Schema.Attribute.Media<'images'>;
     inCharge: Schema.Attribute.String;
     name: Schema.Attribute.String;
+    url: Schema.Attribute.Text;
   };
 }
 
@@ -733,47 +741,13 @@ export interface LayoutSiblingDetails extends Struct.ComponentSchema {
     sibling_name: Schema.Attribute.String;
     sibling_relation: Schema.Attribute.Enumeration<
       [
-        'Paternal Grandfather \u0926\u093E\u0926\u093E',
-        'Paternal Grandmother \u0926\u093E\u0926\u0940',
         "Father's (Elder) Brother \u0924\u093E\u090A",
-        "Father's (Elder) Brother's Wife \u0924\u093E\u0908",
         "Father's (Younger) Brother \u091A\u093E\u091A\u093E",
-        "Father's (Younger) Brother's Wife \u091A\u093E\u091A\u0940",
         "Father's Sister \u092C\u0941\u0906",
-        "Father's Sister's Husband \u092B\u0941\u092B\u093E",
-        'Maternal Grandmother \u0928\u093E\u0928\u0940',
-        'Maternal Grandfather \u0928\u093E\u0928\u093E',
         "Mother's Brother \u092E\u093E\u092E\u093E",
-        "Mother's Brother's Wife \u092E\u093E\u092E\u0940",
         "Mother's Sister \u092E\u094C\u0938\u0940",
-        "Mother's Sister's Husband \u092E\u094C\u0938\u093E",
-        "Grandson (Son's Son) \u092A\u094B\u0924\u093E",
-        "Grandson (Daughter's Son) \u0928\u093E\u0924\u0940",
-        "Granddaughter (Son's Daughter) \u092A\u094B\u0924\u0940",
-        "Granddaughter (Daughter's Daughter) \u0928\u093E\u0924\u093F\u0928",
         'Sister \u092C\u0939\u0928',
-        "Sister's Husband \u091C\u0940\u091C\u093E",
-        "Sister's Son \u092D\u093E\u0902\u091C\u093E",
-        "Sister's Daughter \u092D\u093E\u0902\u091C\u0940",
         'Brother \u092D\u093E\u0908',
-        "Brother's Wife \u092D\u093E\u092D\u0940",
-        "Brother's Son \u092D\u0924\u0940\u091C\u093E",
-        "Brother's Daughter \u092D\u0924\u0940\u091C\u0940",
-        'Husband \u092A\u0924\u093F',
-        "Wife's/Husband's Mother \u0938\u092E\u0927\u0940",
-        "Wife's/Husband's Father \u0938\u092E\u0927\u093F\u0928",
-        'Son in Law \u0926\u093E\u092E\u093E\u0926',
-        'Daughter in Law \u092C\u0939\u0942',
-        "Husband's (Elder) Brother \u091C\u0947\u0920",
-        "Husband's (Elder) Brother's Wife \u091C\u0947\u0920\u093E\u0928\u0940",
-        "Husband's Sister \u0928\u0928\u0926",
-        "Husband's Sister's Husband \u0928\u0928\u0926\u094B\u0907",
-        "Husband's (Younger) Brother \u0926\u0947\u0935\u0930",
-        "Husband's (Younger) Brother's Wife \u0926\u0947\u0935\u0930\u093E\u0928\u0940",
-        "Wife's Sister \u0938\u093E\u0932\u0940",
-        "Wife's Sister's Husband \u0938\u093E\u0902\u0922\u0941",
-        "Wife's Brother \u0938\u093E\u0932\u093E",
-        "Wife's Brother's Wife \u0938\u0948\u0932\u0939\u091C",
       ]
     >;
   };
@@ -788,6 +762,7 @@ export interface LayoutWorkInformation extends Struct.ComponentSchema {
   attributes: {
     businessSize: Schema.Attribute.Enumeration<
       [
+        '',
         'Micro Enterprise',
         'Small Enterprise',
         'Medium Enterprise',
@@ -800,6 +775,7 @@ export interface LayoutWorkInformation extends Struct.ComponentSchema {
     company_name: Schema.Attribute.String;
     employmentType: Schema.Attribute.Enumeration<
       [
+        '',
         'Full-time',
         'Part-time',
         'Contract',
@@ -811,6 +787,7 @@ export interface LayoutWorkInformation extends Struct.ComponentSchema {
       Schema.Attribute.Required;
     industrySector: Schema.Attribute.Enumeration<
       [
+        '',
         'Agriculture & Allied Activities',
         'Manufacturing',
         'Construction & Real Estate',
@@ -834,6 +811,7 @@ export interface LayoutWorkInformation extends Struct.ComponentSchema {
     work_area: Schema.Attribute.String;
     workType: Schema.Attribute.Enumeration<
       [
+        '',
         'Business Owner',
         'Professional',
         'Skilled Worker',
