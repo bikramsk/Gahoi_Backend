@@ -35,6 +35,14 @@
     },
     "spouse_mobile": {
       "type": "string"
+    },
+    "gotra": {
+      "type": "string",
+      "required": false
+    },
+    "aakna": {
+      "type": "string",
+      "required": false
     }
   }
 }

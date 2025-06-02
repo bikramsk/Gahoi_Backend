@@ -461,6 +461,49 @@ export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiBannerImageBannerImage extends Struct.CollectionTypeSchema {
+  collectionName: 'banner_images';
+  info: {
+    description: '';
+    displayName: 'Banner Image';
+    pluralName: 'banner-images';
+    singularName: 'banner-image';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    altText: Schema.Attribute.String & Schema.Attribute.Required;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    desktopImage: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    isActive: Schema.Attribute.Boolean &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<true>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::banner-image.banner-image'
+    > &
+      Schema.Attribute.Private;
+    mobileImage: Schema.Attribute.Media<'images'>;
+    order: Schema.Attribute.Integer &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMax<
+        {
+          min: 1;
+        },
+        number
+      > &
+      Schema.Attribute.DefaultTo<1>;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiContactContact extends Struct.CollectionTypeSchema {
   collectionName: 'contacts';
   info: {
@@ -733,6 +776,83 @@ export interface ApiRegistrationPageRegistrationPage
       'layout.your-suggestion',
       false
     >;
+  };
+}
+
+export interface ApiRegularContributorRegularContributor
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'regular_contributors';
+  info: {
+    description: '';
+    displayName: 'Regular Contributor';
+    pluralName: 'regular-contributors';
+    singularName: 'regular-contributor';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    contribution_date: Schema.Attribute.Date;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    impact: Schema.Attribute.Text;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::regular-contributor.regular-contributor'
+    > &
+      Schema.Attribute.Private;
+    message: Schema.Attribute.Text;
+    monthly_contribution: Schema.Attribute.Text;
+    name: Schema.Attribute.String;
+    photo: Schema.Attribute.Media<'images'>;
+    place: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    purpose: Schema.Attribute.Text;
+    role: Schema.Attribute.Text;
+    total_contribution: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiSupportedStudentSupportedStudent
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'supported_students';
+  info: {
+    displayName: 'Supported Student';
+    pluralName: 'supported-students';
+    singularName: 'supported-student';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    achievement: Schema.Attribute.Text;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::supported-student.supported-student'
+    > &
+      Schema.Attribute.Private;
+    marks: Schema.Attribute.String;
+    name: Schema.Attribute.String;
+    photo: Schema.Attribute.Media<'images'>;
+    publishedAt: Schema.Attribute.DateTime;
+    school: Schema.Attribute.Text;
+    story: Schema.Attribute.Text;
+    supportAmount: Schema.Attribute.String;
+    supporter_name: Schema.Attribute.String;
+    supporter_photo: Schema.Attribute.Media<'images'>;
+    supporter_role: Schema.Attribute.Text;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
   };
 }
 
@@ -1247,12 +1367,15 @@ declare module '@strapi/strapi' {
       'admin::user': AdminUser;
       'api::about.about': ApiAboutAbout;
       'api::article.article': ApiArticleArticle;
+      'api::banner-image.banner-image': ApiBannerImageBannerImage;
       'api::contact.contact': ApiContactContact;
       'api::cowseva.cowseva': ApiCowsevaCowseva;
       'api::global.global': ApiGlobalGlobal;
       'api::latest-news.latest-news': ApiLatestNewsLatestNews;
       'api::login-page.login-page': ApiLoginPageLoginPage;
       'api::registration-page.registration-page': ApiRegistrationPageRegistrationPage;
+      'api::regular-contributor.regular-contributor': ApiRegularContributorRegularContributor;
+      'api::supported-student.supported-student': ApiSupportedStudentSupportedStudent;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;

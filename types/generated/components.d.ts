@@ -307,8 +307,10 @@ export interface LayoutFamilyDetails extends Struct.ComponentSchema {
     displayName: 'Family Details';
   };
   attributes: {
+    aakna: Schema.Attribute.String;
     father_mobile: Schema.Attribute.String;
     father_name: Schema.Attribute.String;
+    gotra: Schema.Attribute.String;
     mother_mobile: Schema.Attribute.String;
     mother_name: Schema.Attribute.String;
     phone_number: Schema.Attribute.BigInteger;
@@ -772,6 +774,27 @@ export interface LayoutWorkInformation extends Struct.ComponentSchema {
       ]
     > &
       Schema.Attribute.Required;
+    businessType: Schema.Attribute.Enumeration<
+      [
+        '',
+        'Sole Proprietorship',
+        'Partnership',
+        'Private Limited Company',
+        'Public Limited Company',
+        'Limited Liability Partnership (LLP)',
+        'Other',
+      ]
+    >;
+    businessYears: Schema.Attribute.Enumeration<
+      [
+        '',
+        '0-2 years',
+        '3-5 years',
+        '6-10 years',
+        '11-20 years',
+        'More than 20 years',
+      ]
+    >;
     company_name: Schema.Attribute.String;
     employmentType: Schema.Attribute.Enumeration<
       [

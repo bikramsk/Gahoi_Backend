@@ -18,7 +18,7 @@
     "industrySector": {
       "type": "enumeration",
       "enum": [
-"",
+        "",
         "Agriculture & Allied Activities",
         "Manufacturing",
         "Construction & Real Estate",
@@ -41,7 +41,7 @@
     "businessSize": {
       "type": "enumeration",
       "enum": [
-"",
+        "",
         "Micro Enterprise",
         "Small Enterprise",
         "Medium Enterprise",
@@ -54,7 +54,7 @@
     "workType": {
       "type": "enumeration",
       "enum": [
-"",
+        "",
         "Business Owner",
         "Professional",
         "Skilled Worker",
@@ -69,7 +69,7 @@
     "employmentType": {
       "type": "enumeration",
       "enum": [
-"",
+        "",
         "Full-time",
         "Part-time",
         "Contract",
@@ -78,6 +78,29 @@
         "Not Currently Employed"
       ],
       "required": true
+    },
+    "businessType": {
+      "type": "enumeration",
+      "enum": [
+        "",
+        "Sole Proprietorship",
+        "Partnership",
+        "Private Limited Company",
+        "Public Limited Company",
+        "Limited Liability Partnership (LLP)",
+        "Other"
+      ]
+    },
+    "businessYears": {
+      "type": "enumeration",
+      "enum": [
+        "",
+        "0-2 years",
+        "3-5 years",
+        "6-10 years",
+        "11-20 years",
+        "More than 20 years"
+      ]
     }
   }
 }
