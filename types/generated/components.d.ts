@@ -512,7 +512,7 @@ export interface LayoutRegionalInformation extends Struct.ComponentSchema {
     SubLocalPanchayat: Schema.Attribute.Enumeration<
       [
         '',
-        'Gahoi Vaishya Samaj Register Brahtaar Gwalior',
+        'Gwalior',
         'Madhavganj',
         'Khasgi Bazaar',
         'Daulatganj',
