@@ -411,7 +411,7 @@ export interface LayoutRegionalInformation extends Struct.ComponentSchema {
         'Lalitpur',
         'Ghasan',
         'Shivpuri',
-        'Ashok Nagar',
+        'Ashoknagar',
         'Guna',
         'Ahmedabad',
         'Indore',
@@ -506,7 +506,7 @@ export interface LayoutRegionalInformation extends Struct.ComponentSchema {
         'Madhya Pradesh',
         'Maharashtra',
         'Rajasthan',
-        'Uttarpradesh',
+        'Uttar Pradesh',
       ]
     >;
     SubLocalPanchayat: Schema.Attribute.Enumeration<
@@ -599,7 +599,7 @@ export interface LayoutRegionalInformation extends Struct.ComponentSchema {
         'Manpura',
         'Karera',
         'Bhonti',
-        'Ashok Nagar',
+        'Ashoknagar',
         'Bamore Kala',
         'Dinara',
         'Guna',
