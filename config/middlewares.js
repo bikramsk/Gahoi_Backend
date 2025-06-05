@@ -16,9 +16,7 @@ module.exports = [
     config: {
       enabled: true,
       origin: [
-        'https://demo.gahoishakti.in',
-        'http://localhost:5173', 
-        'https://api.gahoishakti.in' 
+        'https://demo.gahoishakti.in',        
       ],
       methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'HEAD', 'OPTIONS'],
       headers: [
