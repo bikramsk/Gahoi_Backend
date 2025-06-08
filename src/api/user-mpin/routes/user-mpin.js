@@ -1,56 +1,44 @@
-'use strict';
-
 module.exports = {
   routes: [
     {
       method: 'GET',
-      path: '/api/check-user-mpin/:mobileNumber',
+      path: '/check-user-mpin/:mobileNumber',
       handler: 'user-mpin.checkUserAndMPIN',
       config: {
-        auth: false,
-        policies: [],
-        middlewares: []
+        auth: false
       }
     },
     {
       method: 'POST',
-      path: '/api/verify-mpin',
+      path: '/verify-mpin',
       handler: 'user-mpin.verifyMPIN',
       config: {
-        auth: false,
-        policies: [],
-        middlewares: []
+        auth: false
       }
     },
     {
       method: 'POST',
-      path: '/api/send-whatsapp-otp',
+      path: '/send-whatsapp-otp',
       handler: 'user-mpin.sendWhatsAppOTP',
       config: {
-        auth: false,
-        policies: [],
-        middlewares: []
+        auth: false
       }
     },
     {
       method: 'POST',
-      path: '/api/verify-otp',
+      path: '/verify-otp',
       handler: 'user-mpin.verifyOTP',
       config: {
-        auth: false,
-        policies: [],
-        middlewares: []
+        auth: false
       }
     },
     {
       method: 'POST',
-      path: '/api/set-mpin',
+      path: '/create-mpin',
       handler: 'user-mpin.setMPIN',
       config: {
-        auth: false,
-        policies: [],
-        middlewares: []
+        auth: false
       }
     }
   ]
-}; 
+};

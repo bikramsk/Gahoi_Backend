@@ -907,7 +907,6 @@ export interface ApiSupportedStudentSupportedStudent
 export interface ApiUserMpinUserMpin extends Struct.CollectionTypeSchema {
   collectionName: 'user_mpins';
   info: {
-    description: 'Stores user MPIN information';
     displayName: 'UserMPIN';
     pluralName: 'user-mpins';
     singularName: 'user-mpin';
@@ -934,14 +933,7 @@ export interface ApiUserMpinUserMpin extends Struct.CollectionTypeSchema {
         maxLength: 10;
         minLength: 10;
       }>;
-    mpin: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.Private &
-      Schema.Attribute.SetMinMaxLength<{
-        maxLength: 4;
-        minLength: 4;
-      }>;
-    otpAttempts: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<0>;
+    mpin: Schema.Attribute.String & Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
