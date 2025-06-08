@@ -7,7 +7,9 @@ module.exports = {
       path: '/api/check-user-mpin/:mobileNumber',
       handler: 'user-mpin.checkUserAndMPIN',
       config: {
-        auth: false
+        auth: false,
+        policies: [],
+        middlewares: []
       }
     },
     {
@@ -15,7 +17,9 @@ module.exports = {
       path: '/api/verify-mpin',
       handler: 'user-mpin.verifyMPIN',
       config: {
-        auth: false
+        auth: false,
+        policies: [],
+        middlewares: []
       }
     },
     {
@@ -23,7 +27,9 @@ module.exports = {
       path: '/api/send-whatsapp-otp',
       handler: 'user-mpin.sendWhatsAppOTP',
       config: {
-        auth: false
+        auth: false,
+        policies: [],
+        middlewares: []
       }
     },
     {
@@ -31,7 +37,9 @@ module.exports = {
       path: '/api/verify-otp',
       handler: 'user-mpin.verifyOTP',
       config: {
-        auth: false
+        auth: false,
+        policies: [],
+        middlewares: []
       }
     },
     {
@@ -39,7 +47,9 @@ module.exports = {
       path: '/api/set-mpin',
       handler: 'user-mpin.setMPIN',
       config: {
-        auth: false
+        auth: false,
+        policies: [],
+        middlewares: []
       }
     }
   ]
