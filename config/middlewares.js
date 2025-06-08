@@ -19,7 +19,9 @@ module.exports = [
     config: {
       enabled: true,
       headers: '*',
-      origin: ['https://www.gahoishakti.in', 'https://gahoishakti.in',]
+      origin: ['https://www.gahoishakti.in', 'https://gahoishakti.in', 'http://localhost:5173'],
+      // methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'HEAD', 'OPTIONS'],
+      // credentials: true,
     }
   },
   'strapi::poweredBy',

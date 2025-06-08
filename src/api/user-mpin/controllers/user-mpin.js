@@ -4,7 +4,7 @@ const crypto = require('crypto');
 const { createCoreController } = require('@strapi/strapi').factories;
 
 const generateOTP = () => {
-  return Math.floor(100000 + Math.random() * 900000).toString();
+  return Math.floor(1000 + Math.random() * 9000).toString(); 
 };
 
 const isValidMobileNumber = (mobileNumber) => {
@@ -128,14 +128,7 @@ module.exports = createCoreController('api::user-mpin.user-mpin', ({ strapi }) =
         return ctx.badRequest('Invalid mobile number format');
       }
 
-      // Check if user is blocked
-      const user = await strapi.db.query('api::user-mpin.user-mpin').findOne({
-        where: { mobileNumber }
-      });
-
-      if (user?.isBlocked && user.blockUntil && new Date(user.blockUntil) > new Date()) {
-        return ctx.badRequest('Account is temporarily blocked. Try again later.');
-      }
+    
 
       const otp = generateOTP();
       
