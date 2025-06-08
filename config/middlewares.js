@@ -9,7 +9,6 @@ module.exports = [
           'connect-src': ["'self'", 'https:', 'http:'],
           'img-src': ["'self'", 'data:', 'blob:', 'https:', 'http:'],
           'media-src': ["'self'", 'data:', 'blob:', 'https:', 'http:'],
-          upgradeInsecureRequests: null,
         },
       },
     },
@@ -18,10 +17,11 @@ module.exports = [
     name: 'strapi::cors',
     config: {
       enabled: true,
-      headers: '*',
       origin: ['https://www.gahoishakti.in', 'https://gahoishakti.in', 'http://localhost:5173'],
-      // methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'HEAD', 'OPTIONS'],
-      // credentials: true,
+      credentials: true,
+      methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'HEAD', 'OPTIONS'],
+      headers: ['Content-Type', 'Authorization', 'Origin', 'Accept'],
+      expose: ['Content-Range', 'X-Content-Range', 'Authorization'],
     }
   },
   'strapi::poweredBy',
@@ -31,7 +31,8 @@ module.exports = [
   'strapi::session',
   'strapi::favicon',
   'strapi::public',
-]; 
+];
+
 
 
 
