@@ -4,8 +4,8 @@
   "info": {
     "singularName": "user-mpin",
     "pluralName": "user-mpins",
-    "displayName": "User MPIN",
-    "description": "Stores user mobile numbers, MPINs, and OTP data"
+    "displayName": "UserMPIN",
+    "description": "User MPIN and OTP management"
   },
   "options": {
     "draftAndPublish": false
@@ -30,4 +30,4 @@
       "type": "datetime"
     }
   }
-} 
+}

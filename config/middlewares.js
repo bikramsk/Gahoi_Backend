@@ -20,7 +20,8 @@ module.exports = [
       enabled: true,
       origin: [
         'https://www.gahoishakti.in', 
-        'https://gahoishakti.in', 
+        'https://gahoishakti.in',
+        'https://admin.gahoishakti.in', 
         // 'http://localhost:5173',  
         // 'http://localhost:1337'   
       ],

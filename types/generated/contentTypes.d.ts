@@ -907,8 +907,8 @@ export interface ApiSupportedStudentSupportedStudent
 export interface ApiUserMpinUserMpin extends Struct.CollectionTypeSchema {
   collectionName: 'user_mpins';
   info: {
-    description: 'Stores user mobile numbers, MPINs, and OTP data';
-    displayName: 'User MPIN';
+    description: 'User MPIN and OTP management';
+    displayName: 'UserMPIN';
     pluralName: 'user-mpins';
     singularName: 'user-mpin';
   };
