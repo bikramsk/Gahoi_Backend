@@ -1,3 +1,4 @@
+// config/middlewares.js
 module.exports = [
   'strapi::errors',
   {
@@ -17,7 +18,12 @@ module.exports = [
     name: 'strapi::cors',
     config: {
       enabled: true,
-      origin: ['https://www.gahoishakti.in', 'https://gahoishakti.in', 'http://localhost:5173'],
+      origin: [
+        'https://www.gahoishakti.in', 
+        'https://gahoishakti.in', 
+        // 'http://localhost:5173',  
+        // 'http://localhost:1337'   
+      ],
       credentials: true,
       methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'HEAD', 'OPTIONS'],
       headers: ['Content-Type', 'Authorization', 'Origin', 'Accept'],

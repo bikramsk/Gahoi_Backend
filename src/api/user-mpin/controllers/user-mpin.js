@@ -20,42 +20,22 @@ const hashMPIN = (mpin) => {
 };
 
 const sendWhatsAppMessage = async (to, otp) => {
-  const token = process.env.WHATSAPP_API_TOKEN;
-  const phoneNumberId = process.env.WHATSAPP_BUSINESS_PHONE_NUMBER;
+  const apiKey = "S4YKGP5ZB9Q2J8LIDNM6OACTX";
+  const url = "https://www.wpsenders.in/api/sendMessage";
   
-  if (!token || !phoneNumberId) {
-    throw new Error('WhatsApp API credentials not configured');
-  }
+  const message = `Your OTP for Gahoi Shakti login is: ${otp}. This OTP will expire in 10 minutes.`;
 
-  const url = `https://graph.facebook.com/v17.0/${phoneNumberId}/messages`;
-  
   const response = await fetch(url, {
     method: 'POST',
     headers: {
-      'Authorization': `Bearer ${token}`,
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
-      messaging_product: "whatsapp",
-      to: `91${to}`, // country code
-      type: "template",
-      template: {
-        name: "otp_alert",
-        language: {
-          code: "en"
-        },
-        components: [
-          {
-            type: "body",
-            parameters: [
-              {
-                type: "text",
-                text: otp
-              }
-            ]
-          }
-        ]
-      }
+      api_key: apiKey,
+      message: message,
+      number: to,
+      route: 1, // 1 for Transactional
+      country_code: 91
     })
   });
 
@@ -251,4 +231,4 @@ module.exports = createCoreController('api::user-mpin.user-mpin', ({ strapi }) =
       return ctx.badRequest('Error setting MPIN');
     }
   }
-}));
+})); 

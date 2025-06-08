@@ -1,3 +1,5 @@
+'use strict';
+
 module.exports = {
   routes: [
     {
@@ -37,8 +39,10 @@ module.exports = {
       path: '/create-mpin',
       handler: 'user-mpin.setMPIN',
       config: {
-        auth: false
+        auth: {
+          scope: ['*']
+        }
       }
     }
   ]
-};
+}; 

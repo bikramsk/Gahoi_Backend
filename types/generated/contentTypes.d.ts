@@ -907,7 +907,8 @@ export interface ApiSupportedStudentSupportedStudent
 export interface ApiUserMpinUserMpin extends Struct.CollectionTypeSchema {
   collectionName: 'user_mpins';
   info: {
-    displayName: 'UserMPIN';
+    description: 'Stores user mobile numbers, MPINs, and OTP data';
+    displayName: 'User MPIN';
     pluralName: 'user-mpins';
     singularName: 'user-mpin';
   };
@@ -918,7 +919,10 @@ export interface ApiUserMpinUserMpin extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    lastOtp: Schema.Attribute.String & Schema.Attribute.Private;
+    lastOtp: Schema.Attribute.String &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 64;
+      }>;
     lastOtpSent: Schema.Attribute.DateTime;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
@@ -933,7 +937,10 @@ export interface ApiUserMpinUserMpin extends Struct.CollectionTypeSchema {
         maxLength: 10;
         minLength: 10;
       }>;
-    mpin: Schema.Attribute.String & Schema.Attribute.Private;
+    mpin: Schema.Attribute.String &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 64;
+      }>;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
