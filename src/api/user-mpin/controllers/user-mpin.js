@@ -20,31 +20,59 @@ const hashMPIN = (mpin) => {
 };
 
 const sendWhatsAppMessage = async (to, otp) => {
-  const apiKey = "S4YKGP5ZB9Q2J8LIDNM6OACTX";
+  const apiKey = "HVW5LEKQ81BPR3SJU6F7TCMYZ";
   const url = "https://www.wpsenders.in/api/sendMessage";
   
   const message = `Your OTP for Gahoi Shakti login is: ${otp}. This OTP will expire in 10 minutes.`;
 
-  const response = await fetch(url, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      api_key: apiKey,
-      message: message,
+  try {
+    console.log('WhatsApp API Request:', {
+      url,
       number: to,
-      route: 1, // 1 for Transactional
-      country_code: 91
-    })
-  });
+      hasApiKey: !!apiKey
+    });
+    
+    const response = await fetch(url, {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/x-www-form-urlencoded'
+      },
+      body: new URLSearchParams({
+        api_key: apiKey,
+        message: message,
+        number: to,
+        route: '1',
+        country_code: '91'
+      })
+    });
 
-  if (!response.ok) {
-    const error = await response.json();
-    throw new Error(`WhatsApp API Error: ${JSON.stringify(error)}`);
+    console.log('WhatsApp API Response Status:', response.status);
+    const responseText = await response.text();
+    console.log('WhatsApp API Raw Response:', responseText);
+
+    let responseData;
+    try {
+      responseData = JSON.parse(responseText);
+      console.log('WhatsApp API Parsed Response:', responseData);
+    } catch (parseError) {
+      console.error('Failed to parse WhatsApp API response:', parseError);
+      throw new Error(`Invalid response from WhatsApp API: ${responseText}`);
+    }
+
+    if (!response.ok) {
+      throw new Error(`WhatsApp API error (${response.status}): ${JSON.stringify(responseData)}`);
+    }
+
+    if (!responseData.status) {
+      throw new Error(`WhatsApp send failed: ${responseData.message || 'Unknown error'}`);
+    }
+
+    return responseData;
+  } catch (error) {
+    console.error('WhatsApp send error details:', error);
+    throw error;
   }
-
-  return await response.json();
 };
 
 module.exports = createCoreController('api::user-mpin.user-mpin', ({ strapi }) => ({
@@ -103,26 +131,40 @@ module.exports = createCoreController('api::user-mpin.user-mpin', ({ strapi }) =
   async sendWhatsAppOTP(ctx) {
     try {
       const { mobileNumber } = ctx.request.body;
+      console.log('Received OTP request for mobile:', mobileNumber);
 
       if (!isValidMobileNumber(mobileNumber)) {
         return ctx.badRequest('Invalid mobile number format');
       }
 
       const otp = generateOTP();
+      console.log('Generated OTP:', otp);
       
       try {
-        if (process.env.NODE_ENV === 'production') {
-          await sendWhatsAppMessage(mobileNumber, otp);
-        }
+        const result = await sendWhatsAppMessage(mobileNumber, otp);
+        console.log('WhatsApp send result:', result);
         
-        await strapi.db.query('api::user-mpin.user-mpin').upsert({
-          where: { mobileNumber },
-          data: {
-            mobileNumber,
-            lastOtp: hashMPIN(otp),
-            lastOtpSent: new Date()
-          }
+        // Check if user exists
+        const existingUser = await strapi.db.query('api::user-mpin.user-mpin').findOne({
+          where: { mobileNumber }
         });
+
+        const userData = {
+          mobileNumber,
+          lastOtp: hashMPIN(otp),
+          lastOtpSent: new Date()
+        };
+
+        if (!existingUser) {
+          await strapi.db.query('api::user-mpin.user-mpin').create({
+            data: userData
+          });
+        } else {
+          await strapi.db.query('api::user-mpin.user-mpin').update({
+            where: { id: existingUser.id },
+            data: userData
+          });
+        }
 
         return {
           success: true,
@@ -131,10 +173,11 @@ module.exports = createCoreController('api::user-mpin.user-mpin', ({ strapi }) =
         };
       } catch (error) {
         console.error('WhatsApp API Error:', error);
-        return ctx.badRequest('Failed to send OTP via WhatsApp');
+        return ctx.badRequest(`Failed to send OTP: ${error.message}`);
       }
     } catch (error) {
-      return ctx.badRequest('Error sending OTP');
+      console.error('Send OTP error:', error);
+      return ctx.badRequest(`Error in OTP process: ${error.message}`);
     }
   },
 
